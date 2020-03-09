@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Numerics;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,13 @@ namespace Mandelbrot
         public Form1()
         {
             InitializeComponent();
+
+        }
+
+        public Complex f(Complex z, Complex c)
+        {
+            
+            return z * z + c;
         }
     }
 }

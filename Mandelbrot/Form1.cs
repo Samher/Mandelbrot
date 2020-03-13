@@ -27,21 +27,20 @@ namespace Mandelbrot
         private void button1_Click(object sender, EventArgs e)
         {
             Graph = new Bitmap(pictureBox1.Width, pictureBox1.Height);
-            Complex result = new Complex(0, 0);
-            Complex nResult;
 
-            for (double b = -1; b <= 1; b += 2 / pictureBox1.Height)
+            for (double b = -1; b <= 1; b += 2f / pictureBox1.Height)
             {
                 for (double a = -2.5; a <= 1; a += 3.5 / pictureBox1.Width)
                 {
+                    Complex result = new Complex(0, 0);
                     Complex c = new Complex(a, b);
 
                     for (int n = 0; n < 1000; n++)
                     {
-                        nResult = f(result, c);
-                        if (Complex.Abs(nResult) > 2)
+                        result = f(result, c);
+                        if (Complex.Abs(result) > 2)
                             break;
-                        if (Complex.Abs(nResult) < 2 && n == 999)
+                        if (Complex.Abs(result) < 2 && n == 999)
                         {
                             double aCoord = (a / 3.5) * pictureBox1.Width + (2.5 / 3.5) * pictureBox1.Width;
                             double bCoord = ((b / 2) * pictureBox1.Height + pictureBox1.Height / 2);
@@ -53,9 +52,6 @@ namespace Mandelbrot
             }
         }
 
-        public Complex f(Complex z, Complex c)
-        {
-            return z * z + c;
         private void button2_Click(object sender, EventArgs e)
         {
             Bitmap bah = new Bitmap(pictureBox1.Width, pictureBox1.Height);

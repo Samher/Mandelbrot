@@ -13,10 +13,11 @@ namespace Mandelbrot
 {
     public partial class Form1 : Form
     {
+        Bitmap Graph;
         public Form1()
         {
             InitializeComponent();
-            Bitmap Graph = new Bitmap(Size.Width, Size.Height);
+            Graph = new Bitmap(pictureBox1.Width, pictureBox1.Height);
         }
 
         private void Form1_ResizeEnd(object sender, EventArgs e)

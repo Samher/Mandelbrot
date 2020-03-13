@@ -39,7 +39,7 @@ namespace Mandelbrot
             }
         }
 
-        private void Form1_ResizeEnd(object sender, EventArgs e)
+        public Complex f(Complex z, Complex c)
         {
             return z * z + c;
         }

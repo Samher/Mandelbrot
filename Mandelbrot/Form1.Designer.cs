@@ -29,34 +29,44 @@
         private void InitializeComponent()
         {
             this.button1 = new System.Windows.Forms.Button();
+            this.Length_Box = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1, 1);
+            this.button1.Location = new System.Drawing.Point(-1, -1);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 23);
+            this.button1.Size = new System.Drawing.Size(122, 23);
             this.button1.TabIndex = 0;
             this.button1.Text = "mandelbrot me";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // Length_Box
+            // 
+            this.Length_Box.Location = new System.Drawing.Point(0, 20);
+            this.Length_Box.Name = "Length_Box";
+            this.Length_Box.Size = new System.Drawing.Size(120, 20);
+            this.Length_Box.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(120, 25);
+            this.ClientSize = new System.Drawing.Size(120, 39);
+            this.Controls.Add(this.Length_Box);
             this.Controls.Add(this.button1);
             this.Name = "Form1";
-            this.Opacity = 0.5D;
             this.Text = "Form1";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox Length_Box;
     }
 }
 

@@ -26,7 +26,7 @@ namespace Mandelbrot
 
         private void Calculate()
         {
-            Graph = new Bitmap(10500, 6000);
+            Graph = new Bitmap(int.Parse(Length_Box.Text), (int)(float.Parse(Length_Box.Text) / 3.5f * 2f));
 
             for (int y = 0; y < Graph.Height; y++)
                 for (int x = 0; x < Graph.Width; x++)

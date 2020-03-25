@@ -39,17 +39,24 @@ namespace Mandelbrot
                     Complex z = new Complex(0, 0);
                     Complex c = new Complex(a, b);
                     int n = 0;
-                    while (Complex.Abs(z) < 2 && n < 1000)
+                    do
                     {
                         z = f(z, c);
                         n++;
+                    } while (Complex.Abs(z) <= 2 && n < 1000);
+                    
+                    double aCoord = (a / 3.5) * Graph.Width + (2.5 / 3.5) * Graph.Width;
+                    double bCoord = ((b / 2) * Graph.Height + Graph.Height / 2);
+
+                    if (n == 1000)
+                    {
+                        Graph.SetPixel((int)aCoord, (int)bCoord, Color.Black);
                     }
-                    //if (Complex.Abs(z) < 2)
-                    //{
-                        double aCoord = (a / 3.5) * Graph.Width + (2.5 / 3.5) * Graph.Width;
-                        double bCoord = ((b / 2) * Graph.Height + Graph.Height / 2);
-                        Graph.SetPixel((int)aCoord, (int)bCoord, Color.FromArgb(255, 255 - n / 4, 255 - n / 4, 255 - n / 4));
-                    //}
+                    if (Complex.Abs(z) > 2)
+                    {
+                        double alpha = 255 * Math.Sqrt(n / 1000f);
+                        Graph.SetPixel((int)aCoord, (int)bCoord, Color.FromArgb((int)alpha, 255, 0, 0));
+                    }
                 }
             }
             Graph.Save("GrandeMandel.PNG");
